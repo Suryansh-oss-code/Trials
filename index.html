@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shrishti 💗</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('trial background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    height: 100vh;
+    justify-content: flex-end; 
+    align-items: center;
+    flex-direction: column;
+    font-size: 35px;
+    font-weight: bold;
+    padding-bottom: 200px; 
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+    box-sizing: border-box;
+}
+
+.active {
+    display: flex;
+}
+
+.btn-container {
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.options button {
+    display: block;
+    margin: 15px auto;
+    width: 280px;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+    <source src="trialsong.mp3" type="audio/mpeg">
+</audio>
+
+<div class="slide active">
+    <div style="cursor:pointer;" onclick="startEverything()">
+        <p>Tap to Open 💗</p>
+        <span style="font-size: 18px; opacity: 0.8;">RadheRadhe🧿💗</span>
+    </div>
+</div>
+
+<div class="slide">PLEASE</div>
+<div class="slide">PHOTO</div>
+<div class="slide">BHEJ</div>
+<div class="slide">DIJIYE</div>
+<div class="slide">RADHE RADHE</div>
+<div class="slide">MERI</div>
+<div class="slide">DHARMPATNI 💗🧿</div>
+<div class="slide">HO</div>
+<div class="slide">AAP</div>
+<div class="slide">BS</div>
+<div class="slide">MERI</div>
+<div class="slide">MAI 💗🧿</div>
+<div class="slide">AAPKA 💗🧿</div>
+<div class="slide">POOKIE</div>
+<div class="slide">Mard 💗🧿</div>
+<div class="slide">Hu</div>
+<div class="slide">Shreeji vaishnodevi hanumanji</div>
+<div class="slide">Ke kripa se 💗🧿</div>
+<div class="slide">Shi</div>
+<div class="slide">Kaha</div>
+<div class="slide">N</div>
+
+<div class="slide" id="choiceSlide">
+    <p>Maine Sahi Kaha? 💗🧿</p>
+    <div class="options">
+        <button onclick="choose('Yes')">Yessss Radhe Radhe 🧿💗</button>
+        <button onclick="choose('No')">Haaard luck 🤞😼</button>
+    </div>
+</div>
+
+<div class="slide">Aurat jaat ki jay 🙏🧿</div>
+<div class="slide">I</div>
+<div class="slide">Lovee</div>
+<div class="slide">Youu</div>
+<div class="slide">Meri</div>
+<div class="slide">dharmpatni</div>
+<div class="slide">Shrishtiii Jii🧿💗</div>
+<div class="slide">Radhe Radhe</div>
+<div class="slide">~Aapka pookie mard Priyam 💗🧿</div>
+
+<div class="btn-container">
+    <button id="nextBtn" style="display:none;" onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+let music = document.getElementById("bgmusic");
+
+function startEverything() {
+    music.play().catch(e => console.log("Music error"));
+    nextSlide();
+}
+
+function nextSlide() {
+    // Purani slide chhupao
+    slides[current].classList.remove("active");
+    
+    // Agli slide par jao
+    current++;
+
+    if (current < slides.length) {
+        slides[current].classList.add("active");
+
+        // Agar "Choice Slide" (id="choiceSlide") aa gayi hai, toh Next button chhupao
+        if (slides[current].id === "choiceSlide") {
+            document.getElementById("nextBtn").style.display = "none";
+        } else {
+            document.getElementById("nextBtn").style.display = "block";
+        }
+    } else {
+        // Sab slides khatam hone par button hide kar do
+        document.getElementById("nextBtn").style.display = "none";
+    }
+}
+
+function choose(option) {
+    // Button click karne par agli slide par bhej do
+    nextSlide();
+}
+</script>
+
+</body>
+</html>
+
+
